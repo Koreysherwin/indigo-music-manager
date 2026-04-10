@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.4
+
+- Fixed action execution errors caused by invalid command dispatch to player devices
+- Corrected playback control routing used during mutual exclusion events
+- Improved service action fallback handling
+- Cleared stale status and track fields when no service is active
 ## [1.2.3] - 2025-10-29
 
 ### Fixed
