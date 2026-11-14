@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.7
+- Fixed Apple Music device picker detection to handle plugin ID/name variants and rebuilt local Apple Music plugins.
+- Retains Airfoil Satellite support.
+
+## 1.2.6
+- Added safe state-update filtering for existing upgraded devices to prevent errors before new Airfoil state keys register.
+
+## 1.2.5
+- Added Airfoil Satellite device support, Airfoil Playing state, preferred service option, and Switch to Airfoil Satellite action.
+- Included Airfoil in auto-exclusive pause logic and unified now-playing metadata.
+
 ## 1.2.4
 
 - Fixed action execution errors caused by invalid command dispatch to player devices
