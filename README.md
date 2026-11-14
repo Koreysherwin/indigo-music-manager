@@ -1,6 +1,6 @@
 # Music Manager Plugin for Indigo
 
-Unified control over Spotify, Apple Music, and VLC with automatic mutual exclusion for Indigo Domotics.
+Unified control over Spotify, Apple Music, VLC, and Airfoil Satellite with automatic mutual exclusion for Indigo Domotics.
 
 ## Overview
 
@@ -10,12 +10,12 @@ This plugin is intended to simplify automation and control page design when you 
 
 ## Features
 
-- Unified control for Spotify, Apple Music, and VLC
+- Unified control for Spotify, Apple Music, VLC, and Airfoil Satellite
 - Automatic mutual exclusion between enabled services
 - Active service tracking
 - Combined now playing status
 - Optional Indigo variable updates for automation
-- Works with one, two, or all three supported player plugins
+- Works with one or more of the four supported player plugins
 - Supports a preferred service when nothing is currently playing
 
 ## Requirements
@@ -25,6 +25,7 @@ This plugin is intended to simplify automation and control page design when you 
   - Spotify Control Plugin
   - Apple Music Control Plugin
   - VLC Control Plugin
+  - Airfoil Satellite Plugin
 
 Music Manager is most useful when two or more services are configured, but it can still be used with a single service as a unified control layer.
 
@@ -46,6 +47,7 @@ In the device configuration dialog, assign any combination of the following:
 - Spotify device
 - Apple Music device
 - VLC device
+- Airfoil Satellite device
 
 Additional options:
 
@@ -84,6 +86,7 @@ Typical states include:
 - `spotifyPlaying`
 - `appleMusicPlaying`
 - `vlcPlaying`
+- `airfoilPlaying`
 - `trackName`
 - `artist`
 - `album`
@@ -107,6 +110,7 @@ Music Manager provides unified actions such as:
 - Switch to Spotify
 - Switch to Apple Music
 - Switch to VLC
+- Switch to Airfoil Satellite
 - Refresh Status
 
 Actions are routed to the currently active service, or to the preferred service when nothing is playing.
@@ -119,6 +123,10 @@ Actions are routed to the currently active service, or to the preferred service 
 - This plugin is designed for Indigo users who want one clean music control layer across multiple services.
 
 ## Version History
+
+### 1.2.7
+- Improved Apple Music device picker compatibility.
+- Includes Airfoil Satellite support and safe state updates for existing devices.
 
 ### 1.2.4
 - Fixed action execution errors when one service starts while another is playing
