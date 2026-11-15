@@ -2,6 +2,8 @@
 
 Unified control over Spotify, Apple Music, VLC, and Airfoil Satellite with automatic mutual exclusion for Indigo Domotics.
 
+Current release: [1.2.7](https://github.com/Koreysherwin/indigo-music-manager/releases/tag/V1.2.7).
+
 ## Overview
 
 Music Manager provides a single Indigo device that can monitor and control supported music player plugins from one place. It keeps playback states in sync, tracks the currently active service, and can automatically pause one service when another starts playing.
@@ -31,7 +33,7 @@ Music Manager is most useful when two or more services are configured, but it ca
 
 ## Installation
 
-1. Download the latest release from the repository Releases page.
+1. Download `MusicManager.indigoPlugin.zip` from the [latest release](https://github.com/Koreysherwin/indigo-music-manager/releases/latest) and extract it.
 2. Double-click `MusicManager.indigoPlugin` to install.
 3. Restart the Indigo Server if prompted.
 4. In Indigo, create a new device:
@@ -90,7 +92,13 @@ Typical states include:
 - `trackName`
 - `artist`
 - `album`
-- `playStatus`
+- `status`
+- `isPaused`
+- `isStopped`
+- `playerPosition` and `playerPositionFormatted`
+- `duration` and `durationFormatted`
+- `progressPercent`
+- `soundVolume`
 
 Exact state availability depends on which services are configured and what data the underlying player plugins provide.
 
@@ -101,7 +109,7 @@ Music Manager provides unified actions such as:
 - Play / Pause
 - Play
 - Pause
-- Stop
+- Stop All
 - Next Track
 - Previous Track
 - Volume Up
@@ -111,9 +119,19 @@ Music Manager provides unified actions such as:
 - Switch to Apple Music
 - Switch to VLC
 - Switch to Airfoil Satellite
-- Refresh Status
+- Mute / Unmute
+- Set Shuffle / Set Repeat
+- Skip Forward / Skip Backward
+- Update Now
 
-Actions are routed to the currently active service, or to the preferred service when nothing is playing.
+Playback actions generally target the active or preferred service. Stop All and service switching can affect multiple configured players. Available controls depend on the underlying player plugin; Airfoil Satellite monitoring does not guarantee remote transport control of the sending application.
+
+For Indigo scripts, use the owning plugin's action API rather than `indigo.device.execute()`. For example, with `managerDeviceId` set to your Music Manager device ID:
+
+```python
+manager = indigo.server.getPlugin(indigo.devices[managerDeviceId].pluginId)
+manager.executeAction("pause", deviceId=managerDeviceId)
+```
 
 ## Notes
 
@@ -128,6 +146,12 @@ Actions are routed to the currently active service, or to the preferred service 
 - Improved Apple Music device picker compatibility.
 - Includes Airfoil Satellite support and safe state updates for existing devices.
 
+### 1.2.6
+- Safely filters state updates when newly introduced Airfoil states have not yet registered on an upgraded device.
+
+### 1.2.5
+- Added Airfoil Satellite monitoring, preferred service selection, switching action, and unified metadata and mutual exclusion integration.
+
 ### 1.2.4
 - Fixed action execution errors when one service starts while another is playing
 - Corrected command routing for supported player plugins
@@ -136,7 +160,7 @@ Actions are routed to the currently active service, or to the preferred service 
 
 ## Support
 
-Issues and suggestions can be submitted through the GitHub Issues page for this repository.
+Issues and suggestions can be submitted through [GitHub Issues](https://github.com/Koreysherwin/indigo-music-manager/issues). Include your Indigo version, Music Manager version, configured player plugins, and relevant log messages. See the [changelog](CHANGELOG.md) for release history.
 
 ## License
 
