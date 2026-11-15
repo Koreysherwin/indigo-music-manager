@@ -2,7 +2,7 @@
 
 Unified control over Spotify, Apple Music, VLC, and Airfoil Satellite with automatic mutual exclusion for Indigo Domotics.
 
-Current release: [1.2.7](https://github.com/Koreysherwin/indigo-music-manager/releases/tag/V1.2.7).
+Download the [latest published release](https://github.com/Koreysherwin/indigo-music-manager/releases/latest).
 
 ## Overview
 
@@ -41,6 +41,10 @@ Music Manager is most useful when two or more services are configured, but it ca
    - Type: Plugin
    - Plugin: Music Manager
    - Model: Music Manager
+
+## Upgrading to 1.2.8
+
+The plugin identifier has changed to `com.sherwinsound.musicmanager`. Back up your Indigo database before upgrading. The developer successfully installed 1.2.8 over the previous version and confirmed normal operation. Other installations may require existing devices, actions or scripts referencing the old identifier to be reassigned. Check automations after upgrading.
 
 ## Configuration
 
@@ -141,6 +145,12 @@ manager.executeAction("pause", deviceId=managerDeviceId)
 - This plugin is designed for Indigo users who want one clean music control layer across multiple services.
 
 ## Version History
+
+### 1.2.8
+- Changed the plugin identifier to `com.sherwinsound.musicmanager`.
+- Corrected bundle format metadata and GitHub Issues support URL.
+- No playback logic changes.
+- Developer-tested in-place upgrade from the preceding version.
 
 ### 1.2.7
 - Improved Apple Music device picker compatibility.
