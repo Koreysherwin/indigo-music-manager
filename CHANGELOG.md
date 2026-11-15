@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.8
+- Changed the plugin identifier to `com.sherwinsound.musicmanager`.
+- Corrected the bundle format version and GitHub Issues support URL.
+- No playback logic changes.
+- Developer confirmed successful in-place upgrade; other installations may require device or action reassignment.
+
 ## 1.2.7
 - Fixed Apple Music device picker detection to handle plugin ID/name variants and rebuilt local Apple Music plugins.
 - Retains Airfoil Satellite support.
